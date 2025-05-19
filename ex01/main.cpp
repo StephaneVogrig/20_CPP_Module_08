@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:27:07 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/15 13:52:21 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/19 23:47:52 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int main(void)
 	displaySection("Span");
 	
 	{
-		displaySubtest("subject test");
+		displaySubtest("subject");
 		Span sp = Span(5);
 		sp.addNumber(6);
 		sp.addNumber(3);
@@ -37,7 +37,7 @@ int main(void)
 	}
 
 	{
-		displaySubtest("big number test random number");
+		displaySubtest("big number random number");
 		int bigSize = 200000;
 		Span sp(bigSize);
 		srand(clock());
@@ -51,7 +51,7 @@ int main(void)
 	}
 
 	{
-		displaySubtest("big number test same number");
+		displaySubtest("big number same number");
 		int bigSize = 200000;
 		Span sp(bigSize);
 		srand(clock());
@@ -61,6 +61,37 @@ int main(void)
 			sp.addNumber(ir);
 		}
 		printResult(sp);
+	}
+
+	{
+		displaySubtest("range with enough space");
+		std::vector<int> vec(4, 42);
+		Span sp = Span(10);
+		sp.addNumber(6);
+		sp.addNumber(3);
+		sp.addNumber(17);
+		sp.addNumber(9);
+		sp.addNumber(11);
+		sp.addRange(vec.begin(), vec.end());
+		sp.display();
+		printResult(sp);
+	}
+
+	{
+		try
+		{
+			displaySubtest("range without enough space");
+			std::vector<int> vec(4, 42);
+			Span sp = Span(0);
+			sp.addRange(vec.begin(), vec.end());
+			sp.display();
+			printResult(sp);
+		}
+		catch(const std::runtime_error & e)
+		{
+			std::cerr << e.what() << '\n';
+		}
+		
 	}
 
 	return EXIT_SUCCESS;

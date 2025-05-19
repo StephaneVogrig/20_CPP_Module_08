@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 20:27:39 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/15 13:50:10 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/19 23:45:36 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ Span::Span(unsigned int N) : _max_size(N)
 
 Span::Span(const Span & toCopy) : _data(toCopy._data), _max_size(toCopy._max_size)
 {}
+
+std::ostream & operator << (std::ostream & ostream, const Span & span);
 
 Span::~Span()
 {}
@@ -61,4 +63,11 @@ int Span::longestSpan()
 	int max = *std::max_element(_data.begin(), _data.end());
 	
 	return max - min;
+}
+
+void Span::display()
+{
+	for (std::vector<int>::iterator it = _data.begin(); it != _data.end(); ++it)
+		std::cout << *it << '\n';
+	std::cout.flush();
 }
