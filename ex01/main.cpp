@@ -6,12 +6,14 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/03/23 21:27:07 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/19 23:47:52 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:16:12 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <iostream>
 #include <cstdlib>
+#include <iostream>
+#include <ctime>
+
 #include "Span.hpp"
 #include "utils.hpp"
 
@@ -40,7 +42,7 @@ int main(void)
 		displaySubtest("big number random number");
 		int bigSize = 200000;
 		Span sp(bigSize);
-		srand(clock());
+		srand(std::time(NULL));
 		for (int i = 0; i < bigSize; ++i)
 		{
 			

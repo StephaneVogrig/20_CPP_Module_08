@@ -6,7 +6,7 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 20:27:39 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/19 23:45:36 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:07:52 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,8 +17,6 @@ Span::Span(unsigned int N) : _max_size(N)
 
 Span::Span(const Span & toCopy) : _data(toCopy._data), _max_size(toCopy._max_size)
 {}
-
-std::ostream & operator << (std::ostream & ostream, const Span & span);
 
 Span::~Span()
 {}
