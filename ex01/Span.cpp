@@ -6,11 +6,13 @@
 /*   By: svogrig <svogrig@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/05/14 20:27:39 by svogrig           #+#    #+#             */
-/*   Updated: 2025/05/20 16:07:52 by svogrig          ###   ########.fr       */
+/*   Updated: 2025/05/20 16:35:43 by svogrig          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "Span.hpp"
+
+/* constructor -------------------------------------------------------------- */
 
 Span::Span(unsigned int N) : _max_size(N)
 {}
@@ -18,8 +20,12 @@ Span::Span(unsigned int N) : _max_size(N)
 Span::Span(const Span & toCopy) : _data(toCopy._data), _max_size(toCopy._max_size)
 {}
 
+/* destructor --------------------------------------------------------------- */
+
 Span::~Span()
 {}
+
+/* operator ----------------------------------------------------------------- */
 
 Span & Span::operator = (const Span & toAssign)
 {
@@ -30,6 +36,7 @@ Span & Span::operator = (const Span & toAssign)
 	return *this;
 }
 
+/* member function  --------------------------------------------------------- */
 void Span::addNumber(int n)
 {
 	if (_data.size() == _max_size)
